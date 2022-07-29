@@ -20,16 +20,16 @@ The long term idea for this is to become to NixOS a bit like what Manjaro is to 
 - [nix user repository (nur)](https://github.com/nix-community/NUR)
 - [NPKG package manager](https://github.com/vlinkz/npkg) which can automatically add packages to your `configuration.nix`
 - TODO: Add [Nix GUI](https://github.com/nix-gui/nix-gui) as alternative to npkg
-- Install instructions with encryption and safe hibernation (TODO: Make a feature out of this instead of 'requiring it')
+- Install instructions with encryption and safe hibernation
 - Full KeepassXC integration as secret service/keyring and Browser Integration
 - with `milk.laptop.enable = true;`: Brightness, Touchpad, USB-C Docking Station
 - with `milk.yubikey.enable = true;`: all tools required to use and configure a yubikey
-- Installation documentation includes BTRFS filesystem plus disk encryption. Allows for Snapshots, COW, etc. (TODO: Add
+- Installation documentation includes BTRFS filesystem plus disk encryption. Allows for Snapshots, COW, etc.
 - A lot of CLI Tools
 - with `milk.fancyPkgs.enable = true;`: some very fancy CLI Tools
 - with `milk.desktopPkgs.enable = true;`: Basic Desktop tools like Browser, Mail Client, Office Suite, etc.
 - with `milk.vm.enable = true;`: Everything required to run this inside a KVM/Libvirt VM
-- TODO: The way too fancy [nixos-boot](https://github.com/Melkor333/nixos-boot) loader which takes too much ressources on a small boot... (and is built really ugly!)
+- TODO: The way too fancy [nixos-boot](https://github.com/Melkor333/nixos-boot) loader which takes too much ressources on a small boot...
 
 # Usage
 
