@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.home.gpg;
-  home = config.grantos.home;
+  cfg = config.milk.home.gpg;
+  home = config.milk.home;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.home.gpg = {
+  options.milk.home.gpg = {
     enable = mkOption {
       type = types.bool;
       description = "enable gpg agent";

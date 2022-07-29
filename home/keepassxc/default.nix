@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.home.keepassxc;
+  cfg = config.milk.home.keepassxc;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.home.keepassxc = {
+  options.milk.home.keepassxc = {
     enable = mkOption {
       type = types.bool;
       description = "enable keepassxc. This adds keepassxc as a startupservice and makes it secret-tool, etc.";
@@ -31,10 +31,10 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [pkgs.keepassxc];
-    home-manager.users.${config.grantos.home.user} = {
+    home-manager.users.${config.milk.home.user} = {
       home.packages = [pkgs.keepassxc];
       programs.firefox.extensions = with pkgs.nur.repos.rycee.firefox-addons;
-        mkIf config.home-manager.users.${config.grantos.home.user}.programs.firefox.enable [
+        mkIf config.home-manager.users.${config.milk.home.user}.programs.firefox.enable [
           keepassxc-browser
         ];
 

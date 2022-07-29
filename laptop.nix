@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.laptop;
+  cfg = config.milk.laptop;
   mkSug = mkOverride 700;
 in {
-  options.grantos.laptop = {
+  options.milk.laptop = {
     enable = mkOption {
       type = types.bool;
       description = "enable laptop";

@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos;
+  cfg = config.milk;
   mkSug = mkOverride 700;
   #nixos-boot = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in {
@@ -22,10 +22,10 @@ in {
 
   meta.maintainers = with maintainers; [melkor333];
 
-  options.grantos = {
+  options.milk = {
     enable = mkOption {
       type = types.bool;
-      description = "enable the grantos package and therefore some basics";
+      description = "enable the milkos package and therefore some basics";
       default = true;
     };
   };
@@ -39,8 +39,8 @@ in {
       };
     };
     # TODO: make some function which adds the `mkDefault`
-    grantos.nvim.enable = mkDefault true; # OK
-    grantos.basics = mkDefault true; # OK
-    grantos.defaultPkgs.enable = mkDefault true;
+    milk.nvim.enable = mkDefault true; # OK
+    milk.basics = mkDefault true; # OK
+    milk.defaultPkgs.enable = mkDefault true;
   };
 }

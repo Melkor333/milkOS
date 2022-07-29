@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos;
+  cfg = config.milk;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.vm = {
+  options.milk.vm = {
     enable = mkOption {
       type = types.bool;
       description = "enable vm stuff. Stuff like guest-agent and stuff";

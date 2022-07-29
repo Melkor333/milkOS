@@ -1,3 +1,15 @@
+Add some milk to your (corn) flakes! :P
+
+jokes aside, this is more or less a gathering of various nix related tools and sane configs to be used on a typical NixOS Desktop installation.
+Configured in a way it (should) be completely overridable. Just reconfigure what you don't like in your `configuration.nix`. :)
+
+It's currently not using flakes at all, but that's probably the next thing to work on...
+
+If you miss something or think something shouldn't be enabled per default, make an Issue or a PR.
+I'm glad for any input! :)
+
+The long term idea for this is to become to NixOS a bit like what Manjaro is to Arch linux.
+
 # NixOS based "Distro"
 
 # Current Features (and weirdnesses :P)
@@ -10,18 +22,14 @@
 - TODO: Add [Nix GUI](https://github.com/nix-gui/nix-gui) as alternative to npkg
 - Install instructions with encryption and safe hibernation (TODO: Make a feature out of this instead of 'requiring it')
 - Full KeepassXC integration as secret service/keyring and Browser Integration
-- with `grantos.laptop.enable = true;`: Brightness, Touchpad, USB-C Docking Station
-- with `grantos.yubikey.enable = true;`: all tools required to use and configure a yubikey
+- with `milk.laptop.enable = true;`: Brightness, Touchpad, USB-C Docking Station
+- with `milk.yubikey.enable = true;`: all tools required to use and configure a yubikey
 - Installation documentation includes BTRFS filesystem plus disk encryption. Allows for Snapshots, COW, etc. (TODO: Add
 - A lot of CLI Tools
-- with `grantos.fancyPkgs.enable = true;`: some very fancy CLI Tools
-- with `grantos.desktopPkgs.enable = true;`: Basic Desktop tools like Browser, Mail Client, Office Suite, etc.
-- with `grantos.vm.enable = true;`: Everything required to run this inside a KVM/Libvirt VM
+- with `milk.fancyPkgs.enable = true;`: some very fancy CLI Tools
+- with `milk.desktopPkgs.enable = true;`: Basic Desktop tools like Browser, Mail Client, Office Suite, etc.
+- with `milk.vm.enable = true;`: Everything required to run this inside a KVM/Libvirt VM
 - TODO: The way too fancy [nixos-boot](https://github.com/Melkor333/nixos-boot) loader which takes too much ressources on a small boot... (and is built really ugly!)
-
-# Idea
-
-The idea of this repo is to allow a very easy and quick basic desktop setup including various sources which are rather tedious to include and manage.
 
 # Usage
 
@@ -31,11 +39,11 @@ You can use it by simply adding configuration options to your `configuration.nix
       # TODO: This is probably not accurate and needs testing
       (builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";)
     ]
-  # enable the basic grantos configuration:
-  grantos.enable = true;
+  # enable the basic milkos configuration:
+  milk.enable = true;
 
   # configure your users home settings:
-  grantos.home = {
+  milk.home = {
     user = "Melkor333";
     enable = true;
     keepassxc.enable = true;
@@ -44,6 +52,8 @@ You can use it by simply adding configuration options to your `configuration.nix
 ```
 
 # Full Installation
+
+The following guide is more or less how to set up a complete NixOS system (the way I do it). It's not necessarily related. If you just want to add this to your preexisting config, jump to `# Setup Milk`.
 
 ## Getting a Commandline
 ### Install a new device with an additional separate device
@@ -225,7 +235,7 @@ I also recommend adding:
 hardware.enableRedistributableFirmware = true;
 ```
 
-## Setup Grantos
+## Setup Milk
 
 ### Clone The repo and set it up
 
@@ -233,7 +243,7 @@ Now clone the repo:
 
 ```
 cd /mnt/etc/nixos
-git clone git@githut.com:Melkor333/grantos.git
+git clone git@githut.com:Melkor333/milkos.git
 ```
 
 Change the `/mnt/etc/nixos/configuration.nix` to look like this::
@@ -249,7 +259,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ./grantos
+      ./milkos
       (import "${home-manager}/nixos")
     ];
 
@@ -265,10 +275,10 @@ Comment out lines like the following or even delete them (we'll be using Network
   #networking.interfaces.wlp82s0.useDHCP = true;
 ```
 
-Enable grantos by adding the following line:
+Enable milkos by adding the following line:
 
 ```
-  grantos.enable = true;
+  milk.enable = true;
 ```
 
 Give your Device a name:
@@ -287,7 +297,7 @@ Properly set the preconfigured variables like `# time.timeZone...` :)
 
 My Home Currently looks a bit like this:
 ```
-  grantos = {
+  milk = {
     enable = true;
     fancyPkgs.enable = true;
     desktopPkgs.enable = true;
@@ -302,7 +312,7 @@ My Home Currently looks a bit like this:
 
 ## Setup XServer
 
-TODO: Grantos DOES NOT handle a proper window/desktop manager. But it enables a lot of services by default. I'll need to clear this up and make a variable like `enableWmServices` or something. This should then be disabled when using DE's like KDE/Gnome. MR's welcome :)
+TODO: Milkos DOES NOT handle a proper window/desktop manager. But it enables a lot of services by default. I'll need to clear this up and make a variable like `enableWmServices` or something. This should then be disabled when using DE's like KDE/Gnome. MR's welcome :)
 But this makes it necessary for you to set up `services.xserver` according to your needs. Mainly `services.xserver.windowmanager` or `services.xserver.desktopManager` are relevant.
 
 I set up the window manager as follows in `/mnt/etc/nixos/configuration.nix`. xfce is just a fallback if xmonad doesn't work for some reason. (My XMonad is currently managed outside of nix...):
@@ -338,7 +348,7 @@ in
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
       (import "${nixos-hardware}/DEVICENAME")
-      ./grantos
+      ./milkos
     ];
 ```
 

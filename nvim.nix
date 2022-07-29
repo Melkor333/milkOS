@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos;
+  cfg = config.milk;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos = {
+  options.milk = {
     nvim.enable = mkOption {
       type = types.bool;
       description = "enable simple global nvim config";

@@ -5,13 +5,13 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.home.git;
-  home = config.grantos.home;
+  cfg = config.milk.home.git;
+  home = config.milk.home;
   # MakeSuggestion
   mkSug = mkOverride 700;
   #home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in {
-  options.grantos.home.git = {
+  options.milk.home.git = {
     enable = mkOption {
       type = types.bool;
       description = "enable git";

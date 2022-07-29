@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.home.nur;
-  home = config.grantos.home;
+  cfg = config.milk.home.nur;
+  home = config.milk.home;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.home.nur = {
+  options.milk.home.nur = {
     enable = mkOption {
       type = types.bool;
       description = "enable the nur repository for the user nix-env";

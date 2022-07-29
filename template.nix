@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.CONFIG;
+  cfg = config.milk.CONFIG;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.CONFIG = {
+  options.milk.CONFIG = {
     enable = mkOption {
       type = types.bool;
       description = "enable CONFIG";

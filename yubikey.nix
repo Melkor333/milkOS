@@ -5,11 +5,11 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.yubikey;
+  cfg = config.milk.yubikey;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos.yubikey = {
+  options.milk.yubikey = {
     enable = mkOption {
       type = types.bool;
       description = "enable yubikey packages";

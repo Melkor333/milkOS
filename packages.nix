@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos;
+  cfg = config.milk;
   defaultPkgs = with pkgs;
     if cfg.defaultPkgs.enable
     then [
@@ -80,7 +80,7 @@ with lib; let
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
-  options.grantos = {
+  options.milk = {
     defaultPkgs.enable = mkOption {
       type = types.bool;
       description = "enable sane default package set";

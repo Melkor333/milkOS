@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos;
+  cfg = config.milk;
   mkSug = mkOverride 700;
 in {
-  options.grantos = {
+  options.milk = {
     basics = mkOption {
       type = types.bool;
       description = "enable various configs which just make sense";

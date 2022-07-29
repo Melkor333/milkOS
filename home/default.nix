@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.grantos.home;
+  cfg = config.milk.home;
   # MakeSuggestion
   mkSug = mkOverride 700;
 in {
@@ -17,7 +17,7 @@ in {
     ./keepassxc
   ];
 
-  options.grantos.home = {
+  options.milk.home = {
     enable = mkOption {
       type = types.bool;
       description = "enable home";
@@ -41,11 +41,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    grantos.home.git.enable = mkSug true;
-    grantos.home.gpg.enable = mkSug true;
-    grantos.home.npkg.enable = mkSug true;
-    grantos.home.nur.enable = mkSug true;
-    grantos.home.keepassxc.enable = mkSug true;
+    milk.home.git.enable = mkSug true;
+    milk.home.gpg.enable = mkSug true;
+    milk.home.npkg.enable = mkSug true;
+    milk.home.nur.enable = mkSug true;
+    milk.home.keepassxc.enable = mkSug true;
     # Do Stuff
     home-manager.users.${cfg.user}.home.stateVersion = mkSug config.system.stateVersion;
     users.users.${cfg.user} = {
