@@ -53,7 +53,7 @@ in {
 
     # -------------------------------------
     # Nix
-    nix.useSandbox = mkSug true;
+    nix.settings.sandbox = mkSug true;
     nix.gc.automatic = mkSug true;
     nix.gc.dates = mkSug "weekly";
     # TODO: Blind copy pasta :)
